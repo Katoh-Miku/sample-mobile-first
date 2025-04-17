@@ -1,0 +1,74 @@
+/*------------------------------
+  hamburger
+------------------------------*/
+@use '../base/variable' as *;
+@use '../base/mq' as *;
+@use '../base/mixin' as *;
+
+.hamburger {
+  width: 70px;
+  height: 70px;
+  padding-top: 15px;
+  background-color: $c_text;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1000;
+  cursor: pointer;
+
+  &__line {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      transition: transform 0.3s;
+    }
+    &::before {
+      top: -9px;
+    }
+    &::after {
+      bottom: -9px;
+    }
+  }
+  &__text {
+    margin-top: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+/* open時スタイル */
+.hamburger[aria-expanded='true'] {
+  background-color: $c_key1;
+
+  .hamburger__line {
+    background-color: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+@include mq(lg) {
+  .hamburger {
+    display: none;
+  }
+}

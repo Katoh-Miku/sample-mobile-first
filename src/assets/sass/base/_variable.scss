@@ -8,8 +8,11 @@ $width: 1200px;
 // ページの全体の横幅（中間）
 $width_md: 800px;
 
+// ページの全体の横幅（小さい）
+$width_sm: 500px;
+
 // 標準font-family
-$font_sans: "Noto Sans JP", sans-serif;
+$font_sans: 'Noto Sans JP', sans-serif;
 
 //白黒
 $c_white: #ffffff;
@@ -18,9 +21,8 @@ $c_black: #000000;
 //グレー
 $c_gray1: #dddddd;
 $c_gray2: #707070;
-// $c_gray2: #BEBEBE;
-// $c_gray3: #707070;
-// $c_gray4: #E8E8E9;
+$c_gray3: #bebebe;
+$c_gray4: #e8e8e9;
 // $c_gray5: #505050;
 
 //キーカラー

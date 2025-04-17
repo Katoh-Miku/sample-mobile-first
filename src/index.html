@@ -8,31 +8,331 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header></header>
-    <nav></nav>
-    <main>
-      <div class="container">
-        <div class="js-addText">2秒後に要素を追加します。</div>
-        <ul class="grid grid--pc5col js-target">
-          <li class="grid__item js-addNode"></li>
-          <li class="grid__item js-addNode"></li>
-          <li class="grid__item"></li>
-          <li class="grid__item"></li>
-          <li class="grid__item"></li>
-        </ul>
-        <div>=============================================</div>
-        <ul class="grid grid--pc5col js-target">
-          <li class="grid__item js-addNode"></li>
-          <li class="grid__item js-addNode"></li>
-          <li class="grid__item"></li>
-          <li class="grid__item"></li>
-          <li class="grid__item"></li>
-        </ul>
-      </div>
-    </main>
-    <footer></footer>
+    <div class="site_wrapper">
+      <!-- for pc -->
+      <header class="top-header">
+        <div class="top-header__inner">
+          <h1 class="top-header__logo">LOGO</h1>
+        </div>
+        <nav class="gnav">
+          <div class="gnav__inner">
+            <ul class="gnav__list">
+              <li class="gnav__item"><a href="#anchor_01" class="gnav__link">見出しテキスト01</a></li>
+              <li class="gnav__item"><a href="#anchor_02" class="gnav__link">見出しテキスト02</a></li>
+              <li class="gnav__item"><a href="#anchor_03" class="gnav__link">見出しテキスト03</a></li>
+              <li class="gnav__item"><a href="#anchor_04" class="gnav__link">見出しテキスト04</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <!-- for sp　ハンバーガーメニュー -->
+      <button id="hamburger" class="hamburger" aria-label="メニューを開く" aria-controls="sp-gnav" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__text">Menu</span>
+      </button>
+      <nav id="sp-gnav" class="sp-gnav" aria-hidden="true">
+        <div class="sp-gnav__inner">
+          <div class="sp-gnav__logo"><img src="./assets/img/logo_small.svg" alt="" /></div>
+          <ul class="sp-gnav__list --main">
+            <li class="sp-gnav__item"><a href="#anchor_aaaaa" class="sp-gnav__link">テキストリンク</a></li>
+            <li class="sp-gnav__item"><a href="#anchor_aaaaa" class="sp-gnav__link">テキストリンク</a></li>
+            <li class="sp-gnav__item"><a href="#anchor_aaaaa" class="sp-gnav__link">テキストリンク</a></li>
+            <li class="sp-gnav__item"><a href="#anchor_aaaaa" class="sp-gnav__link">テキストリンク</a></li>
+          </ul>
+          <ul class="sp-gnav__list --sub">
+            <li class="sp-gnav__item"><a href="#" class="sp-gnav__link">サブテキストテキスト</a></li>
+            <li class="sp-gnav__item"><a href="#" class="sp-gnav__link">サブテキストテキスト</a></li>
+          </ul>
+          <small class="sp-gnav__copyright">
+            <span class="visually-hidden">コピーライト</span>
+            © aaaaaaaaaaaaaaa All Rights Reserved. 2025
+          </small>
+        </div>
+      </nav>
+
+      <main>
+        <div class="container">
+          <section class="hero" id="anchor_01">
+            <div class="hero-content">
+              <h1>スマホ特化型<br />ウェブサイト</h1>
+              <p class="hero-subtitle">サブテキストテキスト</p>
+              <p class="hero-desc">テキストテキストテキストテキストテキスト<br />テキストテキストテキスト</p>
+            </div>
+            <div class="scroll-indicator">↓</div>
+          </section>
+          <section class="section" id="anchor_02">
+            <h2 class="section-title">見出しテキスト</h2>
+            <p>みんなのおもいで地球をきれいに。自然由来の成分だけで作った、肌と地球にやさしい石けんです。 合成界面活性剤・防腐剤・着色料・香料・鉱物油などの添加物は一切使用していません。</p>
+          </section>
+          <section class="section" id="anchor_03">
+            <h2 class="section-title">見出しテキスト</h2>
+            <div class="features">
+              <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">テキストテキストテキストテキスト</h3>
+                <p class="feature-desc">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3 class="feature-title">テキストテキストテキストテキスト</h3>
+                <p class="feature-desc">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-icon">🧼</div>
+                <h3 class="feature-title">テキストテキストテキストテキスト</h3>
+                <p class="feature-desc">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+            </div>
+          </section>
+          <section class="section" id="anchor_04">
+            <h2 class="section-title">見出しテキスト</h2>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          </section>
+
+          <section class="cta-section" id="stores">
+            <h2 class="cta-title">あああああああ</h2>
+            <p class="cta-desc">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <p class="cta-desc">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <a href="#" class="cta-button">ボタン</a>
+          </section>
+          <footer class="footer">
+            <div class="footer-logo">LOGO</div>
+            <p class="footer-text">サブテキストテキスト</p>
+            <nav class="footer-nav">
+              <a href="#">テキスト</a>
+              <a href="#">テキスト</a>
+              <a href="#">テキスト</a>
+              <a href="#">テキスト</a>
+              <a href="#">テキスト</a>
+            </nav>
+            <p class="copyright">© 2025 aaaaaaaaaaaaaaaaa All Rights Reserved.</p>
+          </footer>
+          <!-- <section class="section">
+            <div class="heading-lv2 --icon --btn">
+              <h2 class="heading-lv2__title">お知らせ</h2>
+              <p class="heading-lv2__btn"><a href="#" class="btn btn--black btn--xsmall">一覧へ</a></p>
+            </div>
+            <dl class="news">
+              <div class="news__item">
+                <dt class="news__date"><time>2021-11-01</time></dt>
+                <dd class="news__detail">
+                  <span class="news__tag --primary">新商品情報</span>
+                  <a href="#" class="news__link">【焼印付】爪とぎ型キーホルダー登場！</a>
+                </dd>
+              </div>
+              <div class="news__item">
+                <dt class="news__date"><time>2021-10-28</time></dt>
+                <dd class="news__detail">
+                  <span class="news__tag">入荷情報</span>
+                  <a href="#" class="news__link">里親募集型猫カフェ猫式さんの委託販売ブースにアクセサリー・猫首輪・けりぐるみを納品しました。</a>
+                </dd>
+              </div>
+              <div class="news__item">
+                <dt class="news__date"><time>2021-10-12</time></dt>
+                <dd class="news__detail">
+                  <span class="news__tag">イベント出店</span>
+                  <a href="#" class="news__link">ニャンフェス14に参加決定。鋭意新作製作中です！</a>
+                </dd>
+              </div>
+            </dl>
+          </section>
+          <section class="section">
+            <div class="heading-lv2 --icon">
+              <h2 class="heading-lv2__title">おすすめ商品</h2>
+            </div>
+            <div class="grid grid--pc3col">
+              <section class="grid__item pd-card">
+                <h3 class="pd-card__title">ああああああああああああああああああああ</h3>
+                <div class="pd-card__thumb"><img src="./assets/img/dmy_blog01.jpg" alt="" /></div>
+                <p class="pd-card__text">いいいいいいいいいいい</p>
+                <p class="pd-card__price">000円<span>(税抜)</span></p>
+                <p class="pd-card__btn"><a href="" class="btn btn--arrow">詳細を見る</a></p>
+              </section>
+              <section class="grid__item pd-card">
+                <h3 class="pd-card__title">ああああああああああああああああああああ</h3>
+                <div class="pd-card__thumb"><img src="./assets/img/dmy_blog01.jpg" alt="" /></div>
+                <p class="pd-card__text">いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい</p>
+                <p class="pd-card__price">000円<span>(税抜)</span></p>
+                <p class="pd-card__btn"><a href="" class="btn btn--arrow">詳細を見る</a></p>
+              </section>
+              <section class="grid__item pd-card">
+                <h3 class="pd-card__title">ああああああああああああああああああああ</h3>
+                <div class="pd-card__thumb"><img src="./assets/img/dmy_blog01.jpg" alt="" /></div>
+                <p class="pd-card__text">いいいいいいいいいいい</p>
+                <p class="pd-card__price">000円<span>(税抜)</span></p>
+                <p class="pd-card__btn"><a href="" class="btn btn--arrow">詳細を見る</a></p>
+              </section>
+            </div>
+          </section>
+          <section class="section">
+            <div class="heading-lv2 --icon">
+              <h2 class="heading-lv2__title">商品カテゴリー</h2>
+            </div>
+            <ul class="grid grid--pc3col">
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">あああああああああ</p>
+                </a>
+              </li>
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">ああああ</p>
+                </a>
+              </li>
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">あああああああああああああああ</p>
+                </a>
+              </li>
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">あああああああああ</p>
+                </a>
+              </li>
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">ああああ</p>
+                </a>
+              </li>
+              <li class="grid__item">
+                <a href="" class="pd-category">
+                  <div class="pd-category__thumb"><img src="./assets/img/thumb_cate01.jpg" alt="" /></div>
+                  <p class="pd-category__title">あああああああああああああああ</p>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section class="section section--bg">
+            <h2 class="section__title">委託販売先</h2>
+            <p class="section__lead">当店は現在以下の3店舗のレンタルボックスにて委託販売をさせていただいております。<br />商品を実際に手にとってお確かめいただけますので、お近くの方はお気軽にお立ち寄り下さい。</p>
+            <section class="rentalbox">
+              <div class="rentalbox__body">
+                <h3 class="rentalbox__title">台湾スイーツ豆花専門 黒猫豆花 様</h3>
+                <dl class="rentalbox__data">
+                  <div class="rentalbox__data-flex">
+                    <dt>住所</dt>
+                    <dd>神奈川県川崎市高津区二子2丁目7-40　フォーレスト多摩川102</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>営業時間</dt>
+                    <dd>10:00-21:00（時短営業中は20:00まで）</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>定休日</dt>
+                    <dd>水曜日</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>Website</dt>
+                    <dd><a href="https://kuroneko-douhua.com/" target="_blank">https://kuroneko-douhua.com/</a></dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="rentalbox_thumb"><img src="./assets/img/img_rental_kuroneko_douhua.jpg" alt="" /></div>
+            </section>
+            <section class="rentalbox">
+              <div class="rentalbox__body">
+                <h3 class="rentalbox__title">台湾スイーツ豆花専門 黒猫豆花 様</h3>
+                <dl class="rentalbox__data">
+                  <div class="rentalbox__data-flex">
+                    <dt>住所</dt>
+                    <dd>神奈川県川崎市高津区二子2丁目7-40　フォーレスト多摩川102</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>営業時間</dt>
+                    <dd>10:00-21:00（時短営業中は20:00まで）</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>定休日</dt>
+                    <dd>水曜日</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>Website</dt>
+                    <dd><a href="https://kuroneko-douhua.com/" target="_blank">https://kuroneko-douhua.com/</a></dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="rentalbox_thumb"><img src="./assets/img/img_rental_kuroneko_douhua.jpg" alt="" /></div>
+            </section>
+            <section class="rentalbox">
+              <div class="rentalbox__body">
+                <h3 class="rentalbox__title">台湾スイーツ豆花専門 黒猫豆花 様</h3>
+                <dl class="rentalbox__data">
+                  <div class="rentalbox__data-flex">
+                    <dt>住所</dt>
+                    <dd>神奈川県川崎市高津区二子2丁目7-40　フォーレスト多摩川102</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>営業時間</dt>
+                    <dd>10:00-21:00（時短営業中は20:00まで）</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>定休日</dt>
+                    <dd>水曜日</dd>
+                  </div>
+                  <div class="rentalbox__data-flex">
+                    <dt>Website</dt>
+                    <dd><a href="https://kuroneko-douhua.com/" target="_blank">https://kuroneko-douhua.com/</a></dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="rentalbox_thumb"><img src="./assets/img/img_rental_kuroneko_douhua.jpg" alt="" /></div>
+            </section>
+          </section>
+          <section class="section">
+            <h2 class="section__title">プロフィール</h2>
+            <div class="profile">
+              <div class="profile__photo"><img src="./assets/img/img_profile.jpg" alt="アカウント名 @latelierqueueのプロフィール写真" /></div>
+              <p class="profile__account">@latelierqueue</p>
+              <p class="profile__text">
+                猫雑貨・猫おもちゃ、その他ハンドメイド<br />
+                時々農家になります。
+              </p>
+              <ul class="profile__sns-btn">
+                <li>
+                  <a href="#"><img src="./assets/img/sns_twitter.png" alt="Twitter" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="./assets/img/sns_insta.png" alt="instagram" /></a>
+                </li>
+              </ul>
+            </div>
+          </section> -->
+        </div>
+      </main>
+      <!-- <footer class="footer">
+        <p class="pagetop">
+          <a href="#top"><img src="./assets/img/btn_pagetop.svg" alt="ページの先頭へ戻る" /></a>
+        </p>
+        <div class="footer__inner">
+          <div class="footer__logo"><img src="./assets/img/logo_footer.svg" alt="" /></div>
+          <ul class="footer__list --main">
+            <li class="footer__item"><a href="./index.html" class="footer__link">トップページ</a></li>
+            <li class="footer__item"><a href="./products/index.html" class="footer__link">商品一覧</a></li>
+            <li class="footer__item"><a href="./blog/index.html" class="footer__link">ねこブログ</a></li>
+            <li class="footer__item"><a href="./staff/index.html" class="footer__link">ねこ店員紹介</a></li>
+            <li class="footer__item"><a href="./faq/index.html" class="footer__link">よくあるご質問</a></li>
+            <li class="footer__item"><a href="./contact/index.html" class="footer__link">お問い合わせ</a></li>
+          </ul>
+          <ul class="footer__list --sub">
+            <li class="footer__item"><a href="#" class="footer__link">特定商取引法に関する表記</a></li>
+            <li class="footer__item"><a href="./privacy/index.html" class="footer__link">プライバシーポリシー</a></li>
+          </ul>
+          <small class="footer__copyright">
+            <span class="visually-hidden">コピーライト</span>
+            © l’atelier Queue All Rights Reserved. 2021
+          </small>
+        </div>
+      </footer> -->
+    </div>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

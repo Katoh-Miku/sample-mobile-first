@@ -1,0 +1,481 @@
+/*------------------------------
+  top
+------------------------------*/
+@use '../base/variable' as *;
+@use '../base/mq' as *;
+@use '../base/mixin' as *;
+
+/* SP用のスタイル */
+.top-header {
+  display: none;
+}
+
+// @include mq(sm) {
+// }
+
+/* PCおよびタブレット用のスタイル */
+@include mq(lg) {
+  .site_wrapper {
+    position: relative;
+    background-color: $c_gray4;
+    padding: 48px 0;
+    // overflow: hidden;
+  }
+  .top-header {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    max-width: $width;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: $width_sm;
+    margin: 0 auto;
+    box-shadow: 0px 0px 60px rgba(0, 97, 105, 0.3);
+    border-radius: 60px;
+    overflow: hidden;
+    position: relative;
+    z-index: 500;
+  }
+}
+
+/* ここから下はAIからのコピペ */
+
+@include mq(lg) {
+  /* PCレイアウト用の装飾要素 */
+  .pc-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    filter: blur(20px);
+  }
+
+  .cloud-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+  }
+
+  .cloud-2 {
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 5%;
+  }
+
+  .cloud-3 {
+    width: 250px;
+    height: 250px;
+    top: 20%;
+    right: 15%;
+  }
+
+  .cloud-4 {
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    right: 10%;
+  }
+
+  .leaf {
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    background-color: #a3d9a5;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(45deg);
+  }
+
+  .leaf-1 {
+    top: 25%;
+    left: 25%;
+    animation: float 8s infinite ease-in-out;
+  }
+
+  .leaf-2 {
+    top: 40%;
+    right: 30%;
+    animation: float 10s infinite ease-in-out;
+  }
+
+  .leaf-3 {
+    bottom: 20%;
+    left: 40%;
+    animation: float 7s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(45deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(45deg);
+    }
+  }
+
+  /* PC用のナビゲーション */
+  .desktop-nav {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .desktop-nav a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    padding: 5px 0;
+    position: relative;
+  }
+
+  .desktop-nav a:hover {
+    transform: translateX(-5px);
+  }
+
+  /* QRコード */
+  .qr-container {
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    z-index: 20;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qr-code {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+  }
+
+  .qr-text {
+    font-size: 0.7rem;
+    text-align: center;
+    color: #666;
+    line-height: 1.2;
+  }
+
+  /* トップへ戻るボタン */
+  .page-top {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .page-top:hover {
+    background-color: white;
+  }
+
+  .page-top-icon {
+    margin: 0 5px;
+  }
+}
+
+/* モバイル用のヘッダー（PCでは非表示） */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: none;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #4aa3d9;
+}
+
+.logo-icon {
+  margin-right: 5px;
+  color: #4aa3d9;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #a8e0e0, #ffffff);
+  color: #4aa3d9;
+  padding: 0 20px;
+  position: relative;
+}
+
+.hero-content {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  color: #666;
+  font-weight: 300;
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  color: #4aa3d9;
+  font-size: 1.5rem;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+.section {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #4aa3d9;
+}
+
+.features {
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #4aa3d9;
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.cta-section {
+  background-color: #4aa3d9;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.cta-desc {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: white;
+  color: #4aa3d9;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #4aa3d9;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.footer-nav {
+  margin: 20px 0;
+}
+
+.footer-nav a {
+  color: #ccc;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* モバイルでのページトップボタン */
+.mobile-page-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4aa3d9;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-page-top {
+    display: none;
+  }
+}

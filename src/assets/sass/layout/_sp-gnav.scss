@@ -1,0 +1,28 @@
+/*------------------------------
+  SP global nav
+------------------------------*/
+@use '../base/variable' as *;
+@use '../base/mq' as *;
+@use '../base/mixin' as *;
+
+.sp-gnav {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: 100vh;
+  background: $c_key2;
+
+  &__inner {
+    padding: 30px 20px 90px;
+  }
+}
+@include mq(lg) {
+  .hamburger {
+    display: none;
+  }
+}

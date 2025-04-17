@@ -1,54 +1,37 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(() => {
-    addText(document.querySelector(".js-addText"));
-    addNode(document.querySelectorAll(".js-addNode"));
-  }, 2000);
+// hamburger
+const $btnTrigger = $('#hamburger');
+const $btnText = $('.hamburger__text');
+const $nav = $('#sp-gnav');
+const point_header = window.matchMedia('screen and (min-width: 960px)');
 
-  observeListChanges();
+function openMenu() {
+    $btnTrigger.attr('aria-expanded',true).attr('aria-label','メニューを閉じる');
+    $btnText.text('Close');
+    $nav.attr('aria-hidden',false).fadeIn();
+}
+function closeMenu() {
+    $btnTrigger.attr('aria-expanded',false).attr('aria-label','メニューを開く');
+    $btnText.text('Menu');
+    $nav.attr('aria-hidden',true).fadeOut();
+}
+
+$btnTrigger.on('click',function() {
+    const $expanded = $(this).attr('aria-expanded');
+    if($expanded == 'false') {
+        openMenu();
+    }else {
+        closeMenu();
+    }
 });
 
-function addText (el) {
-  console.log('要素を追加しました。');
-  el.textContent = "2秒後に要素を追加します。【追加しました】"
-}
-
-function addNode (els) {
-  els.forEach((el) => {
-    el.innerHTML = `
-      <section class="grid__item card">
-        <a href="" class="card__inner">
-          <figure class="card__thumb"><img src="https://placehold.jp/500x500.png" alt="" /></figure>
-        </a>
-      </section>
-    `;
-  });
-}
-
-function removeNodes(parentNode) {
-  const childNodes = Array.from(parentNode.children);
-  childNodes.forEach(node => {
-    if (!node.classList.contains('js-addNode')) {
-      node.remove();
+function checkBreakPoint() {
+    if (point_header.matches) {
+        closeMenu();
     }
-  });
 }
+point_header.addListener(checkBreakPoint);
 
-function observeListChanges() {
-  const targetNodes = document.querySelectorAll('.js-target');
-  
-  const observer = new MutationObserver(mutationsList => {
-    mutationsList.forEach(mutation => {
-      if (mutation.type === 'childList') {
-        removeNodes(mutation.target.parentElement);
-      }
-    });
-    observer.disconnect();
-  });
-
-  const config = { childList: true, subtree: true };
-  targetNodes.forEach(targetNode =>{
-    observer.observe(targetNode, config);
-  })
-}
+// デバッグ用
+console.log('hello');
